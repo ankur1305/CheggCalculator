@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/calc_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_bold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_36ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/calc_iv"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_calculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calc_tv"
+        app:tint="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/calc_card"
+        android:layout_width="@dimen/_260sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:background="@drawable/layout_calc"
+        android:elevation="@dimen/_4sdp"
+        android:orientation="vertical"
+        android:padding="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calc_iv">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/advent_pro_medium"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/calculate"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ques_et_layout"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="@string/enter_questions_number"
+            android:layout_gravity="center"
+            app:endIconMode="clear_text"
+            android:layout_margin="@dimen/_4sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ques_et"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/advent_pro_medium"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rate_et_layout"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="@string/enter_pay_per_question"
+            app:endIconMode="clear_text"
+            android:layout_gravity="center">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/rate_et"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/advent_pro_medium"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/enter_btn"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_weight="1"
+                android:alpha="0.7"
+                android:backgroundTint="@color/teal_700"
+                android:text="@string/enter"
+                android:onClick="enterClickedFunc"/>
+
+            <Button
+                android:id="@+id/clear_btn"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:alpha="0.7"
+                android:backgroundTint="@color/teal_700"
+                android:text="@string/clear"
+                android:onClick="clearClickedFunc"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/res_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:alpha="0.2"
+            android:fontFamily="@font/advent_pro_bold"
+            android:gravity="center"
+            android:padding="@dimen/_4sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/powered_by_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_medium"
+        android:gravity="center"
+        android:padding="@dimen/_4sdp"
+        android:text="@string/made_by_line"
+        android:textColor="@color/teal_200"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

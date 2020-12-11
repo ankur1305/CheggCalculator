@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Chegg Calculator</string>
+    <string name="made_by_line">Made with &#x1F499; in INDIA</string>
+    <string name="enter_number_of_questions">Enter number of questions</string>
+    <string name="calculate">Calculate</string>
+    <string name="enter_questions_number">Enter questions number</string>
+    <string name="enter_pay_per_question">Enter pay per question</string>
+    <string name="enter">Enter</string>
+    <string name="clear">Clear</string>
+</resources>

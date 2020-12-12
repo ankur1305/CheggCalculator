@@ -7,20 +7,38 @@
     android:background="@drawable/home_background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/calc_tv"
+    <LinearLayout
+        android:id="@+id/upper_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/advent_pro_bold"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:padding="@dimen/_8sdp"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_36ssp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/calc_iv">
+        <TextView
+            android:id="@+id/calc_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:fontFamily="@font/advent_pro_bold"
+            android:includeFontPadding="false"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_34ssp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/_14sdp"
+            android:onClick="settingsClickedFunc"
+            android:contentDescription="@string/app_name"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_settings"
+            android:tintMode="@color/white" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/calc_iv"
@@ -30,7 +48,7 @@
         android:src="@drawable/ic_calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calc_tv"
+        app:layout_constraintTop_toBottomOf="@id/upper_layout"
         app:tint="@color/white" />
 
     <LinearLayout
@@ -68,7 +86,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ques_et"
-                android:layout_width="@dimen/_200sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/advent_pro_medium"
                 android:imeOptions="actionNext"
@@ -88,7 +106,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/rate_et"
-                android:layout_width="@dimen/_200sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/advent_pro_medium"
                 android:imeOptions="actionDone"

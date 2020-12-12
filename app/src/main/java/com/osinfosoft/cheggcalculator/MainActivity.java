@@ -1,5 +1,6 @@
 package com.osinfosoft.cheggcalculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -66,5 +67,10 @@ public class MainActivity extends AppCompatActivity {
     //Function when clear button will be clicked
     public void clearClickedFunc(View view) {
         resTv.setVisibility(View.GONE);
+    }
+
+    //Function whne settings button will be clicked
+    public void settingsClickedFunc(View view) {
+        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
     }
 }

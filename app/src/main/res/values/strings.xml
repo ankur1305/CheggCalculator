@@ -7,4 +7,7 @@
     <string name="enter_pay_per_question">Enter pay per question</string>
     <string name="enter">Enter</string>
     <string name="clear">Clear</string>
+    <string name="settings">Settings</string>
+    <string name="any_suggestion_write_to_us">Any suggestion? Write to us</string>
+    <string name="rate_us">Rate us</string>
 </resources>

@@ -2,8 +2,10 @@ package com.osinfosoft.cheggcalculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText quesEt, rateEt;
     private TextView resTv;
     private TextInputLayout quesEtLayout, rateEtLayout;
+
+    private boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,5 +76,18 @@ public class MainActivity extends AppCompatActivity {
     //Function whne settings button will be clicked
     public void settingsClickedFunc(View view) {
         startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+    }
+
+    //Implementing double press back functionality
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
     }
 }

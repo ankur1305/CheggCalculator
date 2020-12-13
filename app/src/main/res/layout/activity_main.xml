@@ -12,44 +12,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/calc_iv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/calc_iv">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/calc_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
             android:layout_weight="4"
             android:fontFamily="@font/advent_pro_bold"
             android:includeFontPadding="false"
             android:padding="@dimen/_8sdp"
             android:text="@string/app_name"
             android:textColor="@color/white"
-            android:textSize="@dimen/_34ssp" />
+            android:textSize="@dimen/_30ssp" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="@dimen/_14sdp"
-            android:onClick="settingsClickedFunc"
-            android:contentDescription="@string/app_name"
             android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:onClick="settingsClickedFunc"
+            android:padding="@dimen/_14sdp"
             android:src="@drawable/ic_settings"
-            android:tintMode="@color/white" />
+            app:tint="@color/white" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/calc_iv"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_130sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_calculate"
+        android:src="@drawable/ic_calculator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/upper_layout"
-        app:tint="@color/white" />
+        app:layout_constraintTop_toBottomOf="@id/upper_layout" />
 
     <LinearLayout
         android:id="@+id/calc_card"
@@ -76,13 +78,13 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ques_et_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:hint="@string/enter_questions_number"
             android:layout_gravity="center"
-            app:endIconMode="clear_text"
-            android:layout_margin="@dimen/_4sdp">
+            android:layout_margin="@dimen/_4sdp"
+            android:hint="@string/enter_questions_number"
+            app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ques_et"
@@ -97,12 +99,12 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/rate_et_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_gravity="center"
             android:hint="@string/enter_pay_per_question"
-            app:endIconMode="clear_text"
-            android:layout_gravity="center">
+            app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/rate_et"
@@ -130,8 +132,8 @@
                 android:layout_weight="1"
                 android:alpha="0.7"
                 android:backgroundTint="@color/teal_700"
-                android:text="@string/enter"
-                android:onClick="enterClickedFunc"/>
+                android:onClick="enterClickedFunc"
+                android:text="@string/enter" />
 
             <Button
                 android:id="@+id/clear_btn"
@@ -141,8 +143,8 @@
                 android:layout_weight="1"
                 android:alpha="0.7"
                 android:backgroundTint="@color/teal_700"
-                android:text="@string/clear"
-                android:onClick="clearClickedFunc"/>
+                android:onClick="clearClickedFunc"
+                android:text="@string/clear" />
 
         </LinearLayout>
 
@@ -160,19 +162,5 @@
             android:visibility="gone" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/powered_by_line"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/advent_pro_medium"
-        android:gravity="center"
-        android:padding="@dimen/_4sdp"
-        android:text="@string/made_by_line"
-        android:textColor="@color/teal_200"
-        android:textSize="@dimen/_14ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

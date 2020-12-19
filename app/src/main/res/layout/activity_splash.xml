@@ -8,8 +8,9 @@
     tools:context=".SplashActivity">
 
     <ImageView
-        android:layout_width="@dimen/_240sdp"
-        android:layout_height="@dimen/_240sdp"
+        android:id="@+id/background_image"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_calculator"
         app:layout_constraintBottom_toTopOf="@id/powered_by_line"
@@ -18,15 +19,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/logo_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_bold"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/yellow"
+        android:textSize="@dimen/_23ssp"
+        app:layout_constraintBottom_toTopOf="@id/powered_by_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/powered_by_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_12sdp"
         android:fontFamily="@font/advent_pro_medium"
         android:gravity="center"
+        android:layout_margin="@dimen/_10sdp"
         android:text="@string/made_by_line"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/yellow"
+        android:textSize="@dimen/_13ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

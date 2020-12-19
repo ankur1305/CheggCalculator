@@ -12,13 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     //Declaration of views
-    private TextInputEditText quesEt, rateEt;
+    private TextInputEditText quesEt, rateEt, bonusEt;
     private TextView resTv;
     private TextInputLayout quesEtLayout, rateEtLayout;
-
     private boolean doubleBackToExitPressedOnce = false;
 
     @Override
@@ -29,18 +30,19 @@ public class MainActivity extends AppCompatActivity {
         //Hooking declared views
         quesEt = findViewById(R.id.ques_et);
         rateEt = findViewById(R.id.rate_et);
+        bonusEt = findViewById(R.id.bonus_et);
         resTv = findViewById(R.id.res_tv);
         quesEtLayout = findViewById(R.id.ques_et_layout);
         rateEtLayout = findViewById(R.id.rate_et_layout);
-
     }
 
     //Function when user click on Enter function
     public void enterClickedFunc(View view) {
 
         //Taking input of both editText fields
-        String quesEtInput = quesEt.getText().toString().trim();
-        String rateEtInput = rateEt.getText().toString().trim();
+        String quesEtInput = Objects.requireNonNull(quesEt.getText()).toString().trim();
+        String rateEtInput = Objects.requireNonNull(rateEt.getText()).toString().trim();
+        String bonusEtInput = bonusEt.getText().toString().trim();
 
         if (quesEtInput.isEmpty()) {
             quesEtLayout.setError("Can't be empty");
@@ -58,7 +60,11 @@ public class MainActivity extends AppCompatActivity {
             int grossAmount = questions * rate;
             int finalAmount = grossAmount - (int) (grossAmount * (tds / 100));
 
-            resTv.setText(String.format("Your payment (approx) : %s", finalAmount));
+            if (!bonusEtInput.isEmpty()) {
+                finalAmount += Integer.parseInt(bonusEtInput);
+            }
+
+            resTv.setText(String.format("Your payment (approx) : %sg", finalAmount));
             resTv.setVisibility(View.GONE);
             resTv.animate().alpha(1).setDuration(800);
             resTv.setVisibility(View.VISIBLE);
